@@ -1,5 +1,9 @@
 <h1> Learning </h1>
 
+Basics:
+
+rspec --init = initialises Rspec, creates rspec & gem files
+
 <h2>User Stories</h2>
 
 As a person,
