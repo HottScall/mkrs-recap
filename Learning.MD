@@ -1,10 +1,10 @@
 <h1> Learning </h1>
 
-Basics:
+<h2>Basics</h2>
 
 rspec --init = initialises Rspec, creates rspec & gem files
 
-irb:
+<h2>IRB Notes</h2>
 
 - Require the file, ensure to use the path e.g './lib/file_name'
 - Set a variable to a new DockingStation e.g ds = DockingStation.new
