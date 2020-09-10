@@ -89,4 +89,21 @@ ds.dock(bike)
 docking_station.bike
 -> No Method Error: Undefined Method "Bike"
 
-Note that we are essentially adding a Bike method on the DockingStation instance to return a docked Bike instance. Note the following process to ensure why we do this.
+Note that we are essentially adding a Bike method on the DockingStation instance to return a docked Bike instance. Note the following process to ensure why we do this. See DS_spec 16-19 to see the test and the empty bike method which passed the test.
+
+Now if you run your feature test again you will get a new error message with both a docked bike and a ds with a bike both returning nil.
+
+2.6.0 :001 > require './lib/bike'
+=> true
+2.6.0 :002 > require './lib/docking_station'
+=> true
+2.6.0 :003 > bike = Bike.new
+=> #<Bike:0x00007fc3590c07f0>
+2.6.0 :004 > ds = DockingStation.new
+=> #<DockingStation:0x00007fc35593aad8>
+2.6.0 :005 > ds.dock(bike)
+=> nil
+2.6.0 :006 > ds.bike
+=> nil
+
+Okay so first of all you can now change your dock bike test, remove the (respond with 1 argument line) and replace it with expect(subject.dock(bike)) to equal a bike. Then just add a bike to the method to get the rspec tests passing.

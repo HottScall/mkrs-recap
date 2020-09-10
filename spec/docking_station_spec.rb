@@ -11,7 +11,8 @@ describe DockingStation do
   end
 
   it 'expects to respond to dock with 1 argument' do
-    expect(subject).to respond_to(:dock).with(1).argument
+    bike = Bike.new
+    expect(subject.dock(bike)).to eq bike
   end
 
   it 'is expected to respond to a bike instance' do

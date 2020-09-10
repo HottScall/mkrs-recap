@@ -10,6 +10,7 @@ class DockingStation
   end
 
   def dock(bike)
+    return bike
   end
 
 end
