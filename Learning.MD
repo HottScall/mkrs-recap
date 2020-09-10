@@ -64,4 +64,4 @@ Now that you have required both files and created new instances of both, you can
 ds.dock(bike)
 -> (undefined method `dock' for #<DockingStation:0x00007fa0758e8d08>)
 
-So you can repeat your previous respond_to test, but this time you must let the test know that it will respond with 1 argument. Now your feature test will work, but the dock doesn't really do much useful at the moment. DO NOT BE TEMPTED TO DO MORE ON THIS. DO THE MINIMUM AND THEN MOVE ON.
+So you can repeat your previous respond_to test, but this time you must let the test know that it will respond with 1 argument. Now your feature test will work, but the dock doesn't really do much useful at the moment. DO NOT BE TEMPTED TO DO MORE ON THIS. DO THE MINIMUM AND THEN MOVE ON. See ds_spec.rb line 13-15, see ds.rb lines 9&10.
