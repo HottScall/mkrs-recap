@@ -65,3 +65,28 @@ ds.dock(bike)
 -> (undefined method `dock' for #<DockingStation:0x00007fa0758e8d08>)
 
 So you can repeat your previous respond_to test, but this time you must let the test know that it will respond with 1 argument. Now your feature test will work, but the dock doesn't really do much useful at the moment. DO NOT BE TEMPTED TO DO MORE ON THIS. DO THE MINIMUM AND THEN MOVE ON. See ds_spec.rb line 13-15, see ds.rb lines 9&10.
+
+As a member of the public
+So I can decide whether to use the docking station
+I want to see a bike that has been docked
+
+This User Story is a little trickier, it asks us to be remember when bikes are docked (Remember = Memory & Memory = State) whilst also reporting on docked bikes ('behaviour').
+
+Both of these requirements center around a single resource 'docking a bike' Being able to both store something and then also read it will use instance variables or attributes.
+
+So now run a new feature test.
+
+require './lib/docking_station'
+-> true
+require './lib/bike'
+-> true
+bike = Bike.new
+-> #<Bike:0x00007fa075908388>
+ds = DockingStation.new
+-> #<DockingStation:0x00007fa0758e8d08>
+ds.dock(bike)
+-> Nil
+docking_station.bike
+-> No Method Error: Undefined Method "Bike"
+
+Note that we are essentially adding a Bike method on the DockingStation instance to return a docked Bike instance. Note the following process to ensure why we do this.
