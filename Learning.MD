@@ -106,4 +106,8 @@ Now if you run your feature test again you will get a new error message with bot
 2.6.0 :006 > ds.bike
 => nil
 
-Okay so first of all you can now change your dock bike test, remove the (respond with 1 argument line) and replace it with expect(subject.dock(bike)) to equal a bike. Then just add a bike to the method to get the rspec tests passing.
+Okay so first of all you can now change your dock bike test, remove the (respond with 1 argument line) and replace it with expect(subject.dock(bike)) to equal a bike. Then just add a bike to the method to get the rspec tests passing. See ds_spec lines 13-18. Which now passes both the unit and feature tests.
+
+Lines 24 - 28 in ds_spec. We have now written a new test which follows the process of docking a bike, but expects the subject.bike to eq bike.
+
+This means our unit test now resembles our feature test, i.e it expects a bike but it returned nil.
