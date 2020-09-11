@@ -6,11 +6,11 @@ class DockingStation
     Bike.new
   end
 
-  def bike
-  end
-
   def dock(bike)
-    return bike
+    @bike = bike
   end
 
+  def bike
+    @bike
+  end
 end
