@@ -111,3 +111,9 @@ Okay so first of all you can now change your dock bike test, remove the (respond
 Lines 24 - 28 in ds_spec. We have now written a new test which follows the process of docking a bike, but expects the subject.bike to eq bike.
 
 This means our unit test now resembles our feature test, i.e it expects a bike but it returned nil.
+
+Now we use instance variables in both the dock and bike methods which will create a memory of both docked bikes and returning a docked bike.
+
+All tests are now passing meaning we have covered the red and green part of the process now time for a small refactor.
+
+Defining a bike method which returns a bike is actually unneccessary. You can simply remove the bike method and it's contents and replace it with an attr_reader. See line 5.
