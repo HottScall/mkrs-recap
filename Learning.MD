@@ -32,6 +32,10 @@ As a member of the public
 So I can decide whether to use the docking station
 I want to see a bike that has been docked
 
+As a member of the public,
+So that I am not confused and charged unnecessarily,
+I'd like docking stations not to release bikes when there are none available.
+
 <h2>Objects & Messages Table</h2>
 
 | <   | Objects         | Messages      |
@@ -70,7 +74,7 @@ As a member of the public
 So I can decide whether to use the docking station
 I want to see a bike that has been docked
 
-This User Story is a little trickier, it asks us to be remember when bikes are docked (Remember = Memory & Memory = State) whilst also reporting on docked bikes ('behaviour').
+This User Story is a little trickier, it asks us to remember when bikes are docked (Remember = Memory & Memory = State) whilst also reporting on docked bikes ('behaviour').
 
 Both of these requirements center around a single resource 'docking a bike' Being able to both store something and then also read it will use instance variables or attributes.
 
@@ -116,4 +120,39 @@ Now we use instance variables in both the dock and bike methods which will creat
 
 All tests are now passing meaning we have covered the red and green part of the process now time for a small refactor.
 
-Defining a bike method which returns a bike is actually unneccessary. You can simply remove the bike method and it's contents and replace it with an attr_reader. See line 5.
+Defining a bike method which returns a bike is actually unnecessary. You can simply remove the bike method and it's contents and replace it with an attr_reader. See line 5.
+
+<h2>Raising Exceptions</h2>
+
+As a member of the public,
+So that I am not confused and charged unnecessarily,
+I'd like docking stations not to release bikes when there are none available.
+
+<h3>Process</h3>
+
+Complete a feature test which returns an error when there are no bikes. The initial feature test (below) will return an unlimited number of bikes from the release_bike method.
+
+<h3>R.E Feature Test</h3>
+
+2.6.0 :001 > require './lib/bike'
+=> true
+2.6.0 :002 > require './lib/docking_station'
+=> true
+2.6.0 :003 > bike = Bike.new
+=> #<Bike:0x00007fccad83ff78>
+2.6.0 :004 > ds =DockingStation.new
+=> #<DockingStation:0x00007fccaa87f400>
+2.6.0 :005 > ds.dock(bike)
+=> #<Bike:0x00007fccad83ff78>
+2.6.0 :006 > ds.bike
+=> #<Bike:0x00007fccad83ff78>
+2.6.0 :007 > ds.release_bike
+=> #<Bike:0x00007fccaa245f80>
+2.6.0 :008 > ds.release_bike
+=> #<Bike:0x00007fccaa239cf8>
+2.6.0 :009 > ds.release_bike
+=> #<Bike:0x00007fccaa266ed8>
+2.6.0 :010 > ds.release_bike
+=> #<Bike:0x00007fccaa277710>
+2.6.0 :011 > ds.release_bike
+=> #<Bike:0x00007fccaa274448>
