@@ -5,7 +5,8 @@ class DockingStation
 attr_reader :bike
 
   def release_bike
-    Bike.new
+    fail "No bikes available" unless @bike
+    @bike
   end
 
 # Use an instance variable to store the state of this instance.
