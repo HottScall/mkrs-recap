@@ -25,16 +25,6 @@ describe DockingStation do
       expect(subject.dock(bike)).to eq bike
     end
 
-
-      it 'is expected to return a docked bike' do
-        bike = Bike.new
-        subject.dock(bike)
-        expect(subject.bike).to eq bike
-      end
-
-    it 'throws an error when the docking station is full' do
-      expect{subject.dock}.to raise_error "Docking Station full" 
-    end
   end
 
   it 'returns true when asked if bike is working' do
