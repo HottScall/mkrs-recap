@@ -132,6 +132,12 @@ I'd like docking stations not to release bikes when there are none available.
 
 Complete a feature test which returns an error when there are no bikes. The initial feature test (below) will return an unlimited number of bikes from the release_bike method.
 
+Part of this will require you to make an assumption; are bikes already docked or is a DS empty? We'll assume empty for now.
+
+So update your relase bike test to create a new bike instance, dock the bike and then expect the release bike method to equal a bike. Remove the Bike.new and replace with an instance variable.
+
+Now you can write your test with the expectation of a failure and write your fail with unless @bike.
+
 <h3>R.E Feature Test</h3>
 
 2.6.0 :001 > require './lib/bike'
