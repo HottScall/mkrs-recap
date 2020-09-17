@@ -195,3 +195,5 @@ RuntimeError (No bikes available)
 So the docking station starts as empty, we receive an error when releasing a bike without docking. So we add a bike which can now be released, but we can continually dock bikes into a single station.
 
 We need to write a new unit test which still uses a new instance of a bike, but returns an error when a docking station is already full.
+
+Ensure the Unit Test follows the process of docking a bike first and then expect the error.
