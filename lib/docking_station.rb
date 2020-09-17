@@ -11,7 +11,6 @@ attr_reader :bike
 
 # Use an instance variable to store the state of this instance.
   def dock(bike)
-    fail "Docking Station full" unless @bike
     @bike = bike
   end
 

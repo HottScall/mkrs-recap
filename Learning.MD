@@ -162,3 +162,36 @@ Now you can write your test with the expectation of a failure and write your fai
 => #<Bike:0x00007fccaa277710>
 2.6.0 :011 > ds.release_bike
 => #<Bike:0x00007fccaa274448>
+
+<h2>Limiting Capacity</h2>
+
+As a maintainer of the system,
+So that I can control the distribution of bikes,
+I'd like docking stations not to accept more bikes than their capacity.
+
+Feature Test:
+
+2.6.0 :001 > require './lib/bike'
+=> true
+2.6.0 :002 > require './lib/docking_station'
+=> true
+2.6.0 :003 > bike = Bike.new
+=> #<Bike:0x00007f819c8c1228>
+2.6.0 :004 > ds = DockingStation.new
+=> #<DockingStation:0x00007f819c899d68>
+2.6.0 :005 > ds.release_bike
+RuntimeError (No bikes available)
+2.6.0 :007 > ds.dock(bike)
+=> #<Bike:0x00007f819c8c1228>
+2.6.0 :008 > ds.release_bike
+=> #<Bike:0x00007f819c8c1228>
+2.6.0 :009 > ds.dock(bike)
+=> #<Bike:0x00007f819c8c1228>
+2.6.0 :010 > ds.dock(bike)
+=> #<Bike:0x00007f819c8c1228>
+2.6.0 :011 > ds.dock(bike)
+=> #<Bike:0x00007f819c8c1228>
+
+So the docking station starts as empty, we receive an error when releasing a bike without docking. So we add a bike which can now be released, but we can continually dock bikes into a single station.
+
+We need to write a new unit test which still uses a new instance of a bike, but returns an error when a docking station is already full.
