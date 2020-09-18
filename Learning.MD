@@ -226,3 +226,19 @@ Expected Feature Test:
 2.6.0 :002 > ds = DockingStation.new
 => #<DockingStation:0x00007fb8ed938e80>
 2.6.0 :003 > 20.times {ds.dock Bike.new}
+
+Solutions:
+
+Don't get carried away with this kind of requirement. There is no need to start change all your variables and methods to accommodate the word "bikes" as opposed to "bike"
+
+Once you go above a single item (1 bike) you're now talking about a collection and a collection needs a place to be stored (an array or a hash).
+
+Given the task revolves around putting a capacity of 20 bikes, then the issue still works around the guard condition and error tests.
+
+Simply update the "raise error" test and put a guard condition of 20.times wrapped in {} in the step before your expect on raises an error when full test.
+
+Now you simple add an initialize method which calls @bike and assigns it to an empty array. Update release_bike to fail IF bikes.empty? Then update @bikes to @bikes.pop
+
+On the dock fail if the @bikes.count >= 20. Then @bikes << bike.
+
+NOTE: You can't use push (opposite to pop) on your dock method, probably because you've assigned an argument of bike but have not declared a bike. So you use the << operator along with your variable. << effectively says push, i.e add a bike to the array but it specifically works with the bike argument to ensure that tests pass.
