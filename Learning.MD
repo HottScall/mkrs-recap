@@ -197,3 +197,32 @@ So the docking station starts as empty, we receive an error when releasing a bik
 We need to write a new unit test which still uses a new instance of a bike, but returns an error when a docking station is already full.
 
 Ensure the Unit Test follows the process of docking a bike first and then expect the error.
+
+<h2>Limiting Capacity</h2>
+
+As a system maintainer,
+So that I can plan the distribution of bikes,
+I want a docking station to have a default capacity of 20 bikes.
+
+Things to consider:
+
+- Wrap a collection in a class
+- Set an initial attribute value using initialize
+
+Things you will need to do:
+
+- Feature test, using 20.times {docking_station.dock Bike.new}
+- Rename @bike to a name which represents multiple bikes (@bikes?)
+- Use rspec to identify where changes to your code for the Bike instance will need to be changed
+- Update existing tests to represent this change
+- Use an initialize function to set the initial value of this attribute to a simple collection object (an empty array).
+- Make your tests pass by updating the release_bike and dock methods to work with this new array
+- Update your release_bike and dock guard conditions to account for a capacity of 20 bikes
+
+Expected Feature Test:
+
+2.6.0 :001 > require './lib/docking_station'
+=> true
+2.6.0 :002 > ds = DockingStation.new
+=> #<DockingStation:0x00007fb8ed938e80>
+2.6.0 :003 > 20.times {ds.dock Bike.new}

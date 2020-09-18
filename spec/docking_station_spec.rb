@@ -28,7 +28,7 @@ describe DockingStation do
 
     it 'throws an error message when a docking station already contains a bike' do
       subject.dock(Bike.new)
-      expect{subject.dock Bike.new}.to raise_error "Docking Station full"
+      expect{ subject.dock Bike.new }.to raise_error "Docking Station full"
     end
   end
 
