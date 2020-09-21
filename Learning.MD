@@ -242,3 +242,13 @@ Now you simple add an initialize method which calls @bike and assigns it to an e
 On the dock fail if the @bikes.count >= 20. Then @bikes << bike.
 
 NOTE: You can't use push (opposite to pop) on your dock method, probably because you've assigned an argument of bike but have not declared a bike. So you use the << operator along with your variable. << effectively says push, i.e add a bike to the array but it specifically works with the bike argument to ensure that tests pass.
+
+<h2>Refactoring</h2>
+
+Time for a refactor. Note - Single Responsibility Principle and Removing Magic Numbers to call constants.
+
+Created 2 new private methods full? and empty? (Methods with a question mark should return True or False values). This separated the responsibilities between different methods.
+
+Also added a DEFAULT_CAPACITY constant which is assigned the value of 20. Then removed all magic numbers within the code and called DEFAULT_CAPACITY instead.
+
+Note the use of :: which is a namepsace operator. Definition - The :: is a unary operator that allows: constants, instance methods and class methods defined within a class or module, to be accessed from anywhere outside the class or module.
